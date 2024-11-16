@@ -1,40 +1,69 @@
 import json
-from analysis import run_full_analysis
-from plotting import plot_time_series, plot_ccm_results, plot_embedding_analysis
 import logging
 import pandas as pd
+from analysis import run_full_analysis
+from plotting import (plot_time_series, plot_ccm_results, 
+                     plot_multiview_results)
 
 # Configure logging
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.StreamHandler(),
+        logging.FileHandler('ccm_analysis.log')
+    ]
+)
 
 def main():
-    # Load configuration
-    with open('config.json', 'r') as f:
-        config = json.load(f)
-    
-    # Run analysis
-    results = run_full_analysis(config)
-    
-    # Optionally load original data for plotting
-    if config.get('savitzky_golay', {}).get('enable', False):
+    """Main execution function"""
+    try:
+        # Load configuration
+        with open('config.json', 'r') as f:
+            config = json.load(f)
+        
+        # Load original data
+        logging.info("Loading data from %s", config['data_file'])
         original_data = pd.read_csv(config['data_file'])
-        original_data[config['time_column']] = pd.to_datetime(original_data[config['time_column']])
-        # Include 'datetime' in the original_data
-        original_data = original_data[[config['time_column']] + config['columns_to_keep']].copy()
-    else:
-        original_data = None
-    
-    # Create plots
-    plot_time_series(results['data'], config, original_data)
-    plot_ccm_results(results, config)
-    plot_embedding_analysis(results['embedding_results'], config)
-    
-    # Print summary using logging
-    logging.info("\nAnalysis Complete!")
-    logging.info(f"Results saved to: {config['results_dir']}")
-    logging.info("\nStrongest Causal Relationships:")
-    for strength in results['causality_strengths']:
-        logging.info(f"{strength['predictor']} -> {strength['target']}: {strength['strength']:.3f}")
+        if config['time_column'] in original_data.columns:
+            original_data[config['time_column']] = pd.to_datetime(original_data[config['time_column']])
+        
+        # Run analysis
+        logging.info("Starting CCM analysis...")
+        results = run_full_analysis(config)
+        
+        # Create plots
+        logging.info("Generating visualizations...")
+        plot_time_series(results['data'], config, original_data)
+        plot_ccm_results(results, config)
+        plot_multiview_results(results, config)
+        
+        # Print summary statistics
+        logging.info("\nAnalysis Complete!")
+        logging.info("Results saved to: %s", config['results_dir'])
+        
+        if results['causality_strengths']:
+            logging.info("\nPairwise Causal Relationships:")
+            for key, strength in results['causality_strengths'].items():
+                logging.info("%s: %.3f", key, strength)
+        
+        logging.info("\nOverall Performance Metrics:")
+        for metric, value in results['performance_analysis'].items():
+            if isinstance(value, dict):
+                logging.info("%s:", metric)
+                for k, v in value.items():
+                    if isinstance(v, float):
+                        logging.info("  %s: %.3f", k, v)
+                    else:
+                        logging.info("  %s: %s", k, v)
+            elif isinstance(value, float):
+                logging.info("%s: %.3f", metric, value)
+            else:
+                logging.info("%s: %s", metric, value)
+            
+    except Exception as e:
+        logging.error("Error in analysis: %s", str(e), exc_info=True)
+        raise
 
 if __name__ == "__main__":
     main()

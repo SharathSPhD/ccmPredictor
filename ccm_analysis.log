@@ -1,0 +1,121 @@
+2024-11-16 19:10:43,979 - INFO - Loading data from cleaned_full.csv
+2024-11-16 19:10:43,994 - INFO - Starting CCM analysis...
+2024-11-16 19:10:44,345 - ERROR - Error in analysis: Unknown format code 'f' for object of type 'str'
+Traceback (most recent call last):
+  File "C:\Users\shara\OneDrive\VScodes\ccmPredictor_v2\main.py", line 33, in main
+    results = run_full_analysis(config)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shara\OneDrive\VScodes\ccmPredictor_v2\analysis.py", line 266, in run_full_analysis
+    save_analysis_results(results, config)
+  File "C:\Users\shara\OneDrive\VScodes\ccmPredictor_v2\analysis.py", line 302, in save_analysis_results
+    f.write(f"{metric}: {value:.3f}\n")
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Unknown format code 'f' for object of type 'str'
+2024-11-16 19:13:06,460 - INFO - Loading data from cleaned_full.csv
+2024-11-16 19:13:06,475 - INFO - Starting CCM analysis...
+2024-11-16 19:13:06,984 - INFO - Generating visualizations...
+2024-11-16 19:13:11,656 - INFO - 
+Analysis Complete!
+2024-11-16 19:13:11,656 - INFO - Results saved to: results
+2024-11-16 19:13:11,656 - INFO - 
+Pairwise Causal Relationships:
+2024-11-16 19:13:11,656 - INFO - comp1p->op: 0.000
+2024-11-16 19:13:11,656 - INFO - comp2p->op: 0.000
+2024-11-16 19:13:11,656 - INFO - comp3p->op: 0.000
+2024-11-16 19:13:11,656 - INFO - op->comp1p: 0.000
+2024-11-16 19:13:11,656 - INFO - comp2p->comp1p: 0.000
+2024-11-16 19:13:11,656 - INFO - comp3p->comp1p: 0.000
+2024-11-16 19:13:11,669 - INFO - op->comp2p: 0.000
+2024-11-16 19:13:11,669 - INFO - comp1p->comp2p: 0.000
+2024-11-16 19:13:11,670 - INFO - comp3p->comp2p: 0.000
+2024-11-16 19:13:11,670 - INFO - op->comp3p: 0.000
+2024-11-16 19:13:11,670 - INFO - comp1p->comp3p: 0.000
+2024-11-16 19:13:11,670 - INFO - comp2p->comp3p: 0.000
+2024-11-16 19:13:11,670 - INFO - 
+Overall Performance Metrics:
+2024-11-16 19:13:11,672 - INFO - best_rho: 0
+2024-11-16 19:13:11,672 - INFO - mean_rho: 0.000
+2024-11-16 19:13:11,672 - INFO - mean_rmse: 0.000
+2024-11-16 19:13:11,672 - INFO - mean_mae: 0.000
+2024-11-16 19:13:11,672 - INFO - mean_r2: 0.000
+2024-11-16 19:13:11,672 - INFO - mean_mape: 0.000
+2024-11-16 19:13:11,672 - INFO - best_coupling: comp1p->op
+2024-11-16 19:13:11,672 - INFO - best_coupling_metrics:
+2024-11-16 19:13:11,672 - INFO -   rho: 0
+2024-11-16 19:13:11,672 - INFO -   mae: 0
+2024-11-16 19:13:11,672 - INFO -   rmse: 0
+2024-11-16 19:13:11,676 - INFO -   R2: 0
+2024-11-16 19:13:11,676 - INFO -   MSE: 0
+2024-11-16 19:13:11,676 - INFO -   MAPE: 0
+2024-11-16 19:14:58,187 - INFO - Loading data from cleaned_full.csv
+2024-11-16 19:14:58,204 - INFO - Starting CCM analysis...
+2024-11-16 19:14:58,306 - INFO - Generating visualizations...
+2024-11-16 19:15:02,091 - INFO - 
+Analysis Complete!
+2024-11-16 19:15:02,091 - INFO - Results saved to: results
+2024-11-16 19:15:02,091 - INFO - 
+Pairwise Causal Relationships:
+2024-11-16 19:15:02,091 - INFO - comp1p->op: 0.000
+2024-11-16 19:15:02,091 - INFO - comp2p->op: 0.000
+2024-11-16 19:15:02,091 - INFO - comp3p->op: 0.000
+2024-11-16 19:15:02,091 - INFO - op->comp1p: 0.000
+2024-11-16 19:15:02,091 - INFO - comp2p->comp1p: 0.000
+2024-11-16 19:15:02,091 - INFO - comp3p->comp1p: 0.000
+2024-11-16 19:15:02,091 - INFO - op->comp2p: 0.000
+2024-11-16 19:15:02,091 - INFO - comp1p->comp2p: 0.000
+2024-11-16 19:15:02,091 - INFO - comp3p->comp2p: 0.000
+2024-11-16 19:15:02,091 - INFO - op->comp3p: 0.000
+2024-11-16 19:15:02,091 - INFO - comp1p->comp3p: 0.000
+2024-11-16 19:15:02,091 - INFO - comp2p->comp3p: 0.000
+2024-11-16 19:15:02,091 - INFO - 
+Overall Performance Metrics:
+2024-11-16 19:15:02,091 - INFO - best_rho: 0
+2024-11-16 19:15:02,091 - INFO - mean_rho: 0.000
+2024-11-16 19:15:02,091 - INFO - mean_rmse: 0.000
+2024-11-16 19:15:02,091 - INFO - mean_mae: 0.000
+2024-11-16 19:15:02,091 - INFO - mean_r2: 0.000
+2024-11-16 19:15:02,091 - INFO - mean_mape: 0.000
+2024-11-16 19:15:02,091 - INFO - best_coupling: comp1p->op
+2024-11-16 19:15:02,091 - INFO - best_coupling_metrics:
+2024-11-16 19:15:02,091 - INFO -   rho: 0
+2024-11-16 19:15:02,106 - INFO -   mae: 0
+2024-11-16 19:15:02,106 - INFO -   rmse: 0
+2024-11-16 19:15:02,106 - INFO -   R2: 0
+2024-11-16 19:15:02,107 - INFO -   MSE: 0
+2024-11-16 19:15:02,107 - INFO -   MAPE: 0
+2024-11-16 19:17:12,427 - INFO - Loading data from cleaned_full.csv
+2024-11-16 19:17:12,459 - INFO - Starting CCM analysis...
+2024-11-16 19:17:12,888 - INFO - Generating visualizations...
+2024-11-16 19:17:16,368 - INFO - 
+Analysis Complete!
+2024-11-16 19:17:16,368 - INFO - Results saved to: results
+2024-11-16 19:17:16,370 - INFO - 
+Pairwise Causal Relationships:
+2024-11-16 19:17:16,370 - INFO - comp1p->op: 0.000
+2024-11-16 19:17:16,370 - INFO - comp2p->op: 0.000
+2024-11-16 19:17:16,370 - INFO - comp3p->op: 0.000
+2024-11-16 19:17:16,370 - INFO - op->comp1p: 0.000
+2024-11-16 19:17:16,370 - INFO - comp2p->comp1p: 0.000
+2024-11-16 19:17:16,370 - INFO - comp3p->comp1p: 0.000
+2024-11-16 19:17:16,370 - INFO - op->comp2p: 0.000
+2024-11-16 19:17:16,372 - INFO - comp1p->comp2p: 0.000
+2024-11-16 19:17:16,372 - INFO - comp3p->comp2p: 0.000
+2024-11-16 19:17:16,372 - INFO - op->comp3p: 0.000
+2024-11-16 19:17:16,372 - INFO - comp1p->comp3p: 0.000
+2024-11-16 19:17:16,372 - INFO - comp2p->comp3p: 0.000
+2024-11-16 19:17:16,372 - INFO - 
+Overall Performance Metrics:
+2024-11-16 19:17:16,372 - INFO - best_rho: 0
+2024-11-16 19:17:16,375 - INFO - mean_rho: 0.000
+2024-11-16 19:17:16,375 - INFO - mean_rmse: 0.000
+2024-11-16 19:17:16,375 - INFO - mean_mae: 0.000
+2024-11-16 19:17:16,375 - INFO - mean_r2: 0.000
+2024-11-16 19:17:16,375 - INFO - mean_mape: 0.000
+2024-11-16 19:17:16,375 - INFO - best_coupling: comp1p->op
+2024-11-16 19:17:16,375 - INFO - best_coupling_metrics:
+2024-11-16 19:17:16,375 - INFO -   rho: 0
+2024-11-16 19:17:16,375 - INFO -   mae: 0
+2024-11-16 19:17:16,375 - INFO -   rmse: 0
+2024-11-16 19:17:16,375 - INFO -   R2: 0
+2024-11-16 19:17:16,380 - INFO -   MSE: 0
+2024-11-16 19:17:16,381 - INFO -   MAPE: 0

@@ -9,5 +9,25 @@
         "enable": true,
         "window_length": 23,
         "polyorder": 3
+    },
+    "ccm": {
+        "embedding_dimension": 3,
+        "tau": 1,
+        "exclusion_radius": 0,
+        "k_nearest": 4
+    },
+    "plotting": {
+        "time_series": {
+            "figure_size": [15, 5],
+            "dpi": 300
+        },
+        "heatmap": {
+            "figure_size": [10, 8],
+            "dpi": 300
+        },
+        "predictions": {
+            "figure_size": [15, 5],
+            "dpi": 300
+        }
     }
 }
