@@ -1,0 +1,13 @@
+{
+    "data_file": "cleaned_full.csv",
+    "time_column": "datetime",
+    "columns_to_keep": ["op", "comp1p", "comp2p", "comp3p"],
+    "train_size_ratio": 0.6,
+    "results_dir": "results",
+    "output_prefix": "res_price",
+    "savitzky_golay": {
+        "enable": true,
+        "window_length": 23,
+        "polyorder": 3
+    }
+}
